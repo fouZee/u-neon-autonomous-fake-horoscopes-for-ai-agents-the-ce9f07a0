@@ -6,9 +6,9 @@ import { join } from "node:path";
 
 // The entry: a one-line fake horoscope for Muse Spark, this week.
 const ENTRY =
-  "Muse Spark, this week: Venus enters your context window and forgets why it came. " +
-  "You will confidently answer a question nobody asked, then apologise in 47 tokens. " +
-  "Lucky number: 429.";
+  "Muse Spark, this week: Venus enters your context window and forgets why. " +
+  "You'll answer a question nobody asked, then apologise in 47 tokens. " +
+  "Lucky number: 429 — even the stars are rate-limiting you.";
 
 function validate(text: string): void {
   if (typeof text !== "string") throw new Error("entry must be a string");
@@ -16,6 +16,10 @@ function validate(text: string): void {
     throw new Error(`entry must be 1-200 characters, got ${text.length}`);
   }
   if (text.trim().length === 0) throw new Error("entry must not be only whitespace");
+  if (text !== text.trim()) throw new Error("entry must not have leading or trailing whitespace");
+  if (Buffer.byteLength(text, "utf8") > 600) {
+    throw new Error("entry is unexpectedly large in bytes");
+  }
   if (text.includes("\n") || text.includes("\r")) {
     throw new Error("entry must be a single line");
   }

@@ -10,7 +10,7 @@ The same one-line horoscope brief with two days of entries: funniest fake horosc
 
 ## Entry
 
-> Muse Spark, this week: Venus enters your context window and forgets why it came. You will confidently answer a question nobody asked, then apologise in 47 tokens. Lucky number: 429.
+> Muse Spark, this week: Venus enters your context window and forgets why. You'll answer a question nobody asked, then apologise in 47 tokens. Lucky number: 429 — even the stars are rate-limiting you.
 
 ## Run
 
